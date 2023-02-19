@@ -1,0 +1,137 @@
+// ******************************************************************************************************
+// # index
+// ******************************************************************************************************/
+
+// # outline section
+// ******************************************************************************************************/
+.outline {
+  &__text {
+    margin-bottom: 16px;
+  }
+  &__item {
+    font-weight: 700;
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+    li {
+      font-weight: 400;
+      margin-left: 1em;
+    }
+  }
+}
+
+// # detail section
+// ******************************************************************************************************/
+.detail {
+  &__item {
+    color: #4A90E2;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.6em;
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+  &__text {
+    color: #424242;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: $baseLineHeight;
+    word-break: break-all;
+    &--notes {
+      font-size: 12px;
+      line-height: $baseLineHeight;
+      margin-top: 16px;
+    }
+  }
+}
+
+// # weather section
+// ******************************************************************************************************/
+.weather {
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 16px;
+    @media #{$sp} {
+      gap: 16px 0;
+    }
+  }
+  &__col-2-5 {
+    width: calc(100% / 5 * 2 - 8px);
+    @media #{$sp} {
+      width: 100%;
+    }
+  }
+  &__col-3-5 {
+    width: calc(100% / 5 * 3 - 8px);
+    @media #{$sp} {
+      width: 100%;
+    }
+  }
+  &__col-1-5 {
+    width: calc(100% / 5 * 1 - 12.8px);
+    @media #{$sp} {
+      width: 100%;
+    }
+  }
+  &__title {
+    background-color: #E7F0FC;
+    border-radius: 7px 7px 0 0;
+    color: $baseActiveColor;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 18px;
+    text-align: center;
+    line-height: 1.4em;
+    &--gray {
+      background-color: #E4E4E4;
+      color: $baseTextColor;
+    }
+  }
+  &__body {
+    background-color: #ffffff;
+    border-radius: 0 0 7px 7px;
+    text-align: center;
+    padding: 24px;
+    &--gray {
+      background-color: #F7F9FB;
+    }
+  }
+  &__text {
+    margin-bottom: 16px;
+  }
+  &__date {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    li {
+      &.max {
+        color: #FF0000;
+        margin-right: 16px;
+      }
+      &.min {
+        color: #4A90E2;
+      }
+      span {
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+  &__table {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    th, td {
+      text-align: center;
+    }
+    th {
+      font-weight: 400;
+      &:not(:last-child) {
+        padding-right: 16px;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DONUTS Frontend 技能試験</title>
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">DONUTS FRONTEND EXAM</h1>
+    </header>
+    <section class="section section--bgGray outline">
+      <div class="container">
+        <h2 class="section__title">試験概要</h2>
+        <p class="outline__text">コーディング課題（試験内容）に取り組んでいただきたく、ご案内お願いいたします。</p>
+        <ul class="outline__list">
+          <li class="outline__item">・フロントエンドエンジニア職に応募の方
+            <ul>
+              <li>・1 〜 4すべてご対応ください。</li>
+              <li>・「4. 提出方法」に関して、githubでの提出を推奨します。</li>
+            </ul>
+          </li>
+          <li class="outline__item">・デザイナー職に応募の方
+            <ul>
+              <li>・「3. APIによる反映」 の対応は不要です。</li>
+              <li>・「4. 提出方法」に関して、githubでの提出が難しい場合、圧縮ファイルでの提出でも可です。</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <p id="stage"></p>
+    <section class="section detail">
+      <div class="container">
+        <h2 class="section__title">試験内容</h2>
+        <ol class="detail__list">
+          <li class="detail__item">1. デザインに従ってコーディングをしてください
+            <p class="detail__text"><a href="https://xd.adobe.com/view/6326e7bd-2396-4838-8359-32f096cac59d-3675/" target="_blank">https://xd.adobe.com/view/6326e7bd-2396-4838-8359-32f096cac59d-3675/</a>のデザインに沿って(問題文等も含めて)コーディングをしてください。<br>
+            なお、ベースとなるソースコードは<a href="https://github.com/d-o-n-u-t-s/web-frontend-exam/" target="_blank">https://github.com/d-o-n-u-t-s/web-frontend-exam/</a> を Cloneしてご使用ください。</p>
+          </li>
+          <li class="detail__item">2. レスポンシブにコーディングしてください
+            <p class="detail__text">PC、モバイルそれぞれで何か1つのブラウザで確認できる状態にしてください。<br>なお、提出時に確認済みブラウザを共有下さい。</p>
+          </li>
+          <li class="detail__item">3. 以下のAPIを使って、天気情報を動的に取得し反映させてください
+            <ul class="detail__text">
+              <li>・Open-Meteo WeatherForecastAPI ... <a href="https://open-meteo.com/en/docs/" target="_blank">https://open-meteo.com/en/docs/</a></li>
+              <li>・天気予報 API（livedoor 天気互換） … <a href="https://weather.tsukumijima.net/" target="_blank">https://weather.tsukumijima.net/</a></li>
+            </ul>
+            <ul class="detail__text detail__text--notes">
+              <li>※ weatherCodeに対応する天候名とアイコンの取得は<a href="_src/js/hooks/getWeatherInfo.js">getWeatherInfo.js</a> を使用してよいものとします。</li>
+              <li>※ どちらも観測地点は東京とし、(緯度, 経度) = (35.6785, 139.6823) とします。</li>
+              <li>※ APIからの取得が難しい場合は、レイアウトのみ再現してください。</li>
+            </ul>
+          </li>
+          <li class="detail__item">4. 以下のいずれかの方法で提出をしてください
+            <ul class="detail__text">
+              <li>・ご自身のgithub上にリポジトリを作成し、そこにpushした上で、リポジトリURLを共有する。</li>
+              <li>・clone先のディレクトリを.gitディレクトリを含んだ状態で圧縮(zip, tar等)し、添付して提出する。</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--bgGray weather">
+      <div class="container">
+        <h2 class="section__title">今日/明日の天気</h2>
+        <div class="weather__row">
+          <div class="weather__col-3-5">
+            <h3 class="weather__title">今日の天気</h3>
+            <div class="weather__body">
+              <p class="weather__text">一部曇</p>
+              <img src="static/img/101.svg" alt="一部曇りアイコン画像">
+              <ul class="weather__date">
+                <li class="max"><span>11.9</span>℃<br>[-2]</li>
+                <li class="min"><span>1.1</span>℃<br>[0]</li>
+              </ul>
+              <table class="weather__table">
+                <tr>
+                  <th>時間</th>
+                  <th>0-6時</th>
+                  <th>6-12時</th>
+                  <th>12-18時</th>
+                  <th>18-24時</th>
+                </tr>
+                <tr>
+                  <th>降水</th>
+                  <td>--%</td>
+                  <td>--%</td>
+                  <td>0%</td>
+                  <td>10%</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="weather__col-2-5">
+            <h3 class="weather__title weather__title--gray">明日の天気</h3>
+            <div class="weather__body">
+              <p class="weather__text">曇り</p>
+              <img src="static/img/200.svg" alt="曇りアイコン画像">
+              <ul class="weather__date">
+                <li class="max"><span>12.5</span>℃<br>[-1]</li>
+                <li class="min"><span>4</span>℃<br>[-3]</li>
+              </ul>
+              <table class="weather__table">
+                <tr>
+                  <th>時間</th>
+                  <th>0-6時</th>
+                  <th>6-12時</th>
+                  <th>12-18時</th>
+                  <th>18-24時</th>
+                </tr>
+                <tr>
+                  <th>降水</th>
+                  <td>--%</td>
+                  <td>--%</td>
+                  <td>0%</td>
+                  <td>10%</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">今週の天気</h2>
+        <div class="weather__row">
+          <div class="weather__col-1-5">
+            <h3 class="weather__title">2月8日 (水)</h3>
+            <div class="weather__body weather__body--gray">
+              <p class="weather__text">一部曇</p>
+              <img src="static/img/101.svg" alt="一部曇りアイコン画像">
+              <ul class="weather__date">
+                <li class="max"><span>11.9</span>℃<br>[-2]</li>
+                <li class="min"><span>1.1</span>℃<br>[0]</li>
+              </ul>
+            </div>
+          </div>
+          <div class="weather__col-1-5">
+            <h3 class="weather__title">2月9日 (木)</h3>
+            <div class="weather__body weather__body--gray">
+              <p class="weather__text">曇り</p>
+              <img src="static/img/200.svg" alt="曇りアイコン画像">
+              <ul class="weather__date">
+                <li class="max"><span>11.9</span>℃<br>[-2]</li>
+                <li class="min"><span>1.1</span>℃<br>[0]</li>
+              </ul>
+            </div>
+          </div>
+          <div class="weather__col-1-5">
+            <h3 class="weather__title">2月10日 (金)</h3>
+            <div class="weather__body weather__body--gray">
+              <p class="weather__text">雪</p>
+              <img src="static/img/400.svg" alt="雪アイコン画像">
+              <ul class="weather__date">
+                <li class="max"><span>4.2</span>℃<br>[-4]</li>
+                <li class="min"><span>0.6</span>℃<br>[-1]</li>
+              </ul>
+            </div>
+          </div>
+          <div class="weather__col-1-5">
+            <h3 class="weather__title">2月11日 (土)</h3>
+            <div class="weather__body weather__body--gray">
+              <p class="weather__text">一部曇</p>
+              <img src="static/img/101.svg" alt="一部曇りアイコン画像">
+              <ul class="weather__date">
+                <li class="max"><span>11.7</span>℃<br>[+7]</li>
+                <li class="min"><span>1.1</span>℃<br>[+2]</li>
+              </ul>
+            </div>
+          </div>
+          <div class="weather__col-1-5">
+            <h3 class="weather__title">2月12日 (日)</h3>
+            <div class="weather__body weather__body--gray">
+              <p class="weather__text">雨</p>
+              <img src="static/img/300.svg" alt="雨アイコン画像">
+              <ul class="weather__date">
+                <li class="max"><span>12.9</span>℃<br>[+1]</li>
+                <li class="min"><span>4.3</span>℃<br>[-3]</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <small class="footer__copy">© DONUTS Co. Ltd.</small>
+      </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="static/js/all.min.js"></script>
+  </body>
+</html>
